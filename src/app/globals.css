@@ -2,33 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom Variables */
+/* Define custom colors and styles */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --accent: #00ffff;
-  --alt-background: #0a0a0a;
-  --alt-foreground: #ededed;
-  --font-primary: 'Bebas Neue', sans-serif;
+  --background: #0a0a0a; /* Main background color */
+  --foreground: #00ffff; /* Heading and button color */
+  --accent: #ff00ff;     /* Accent color */
+  --alt-background: #ffffff; /* Alternative background color */
+  --alt-color: #0a0a0a;      /* Alternative text color */
 }
 
+/* Dark mode alternative */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: var(--alt-background);
-    --foreground: var(--alt-foreground);
+    --background: #0a0a0a;
+    --foreground: #00ffff;
+    --accent: #ff00ff;
+    --alt-background: #ffffff;
+    --alt-color: #0a0a0a;
   }
 }
 
 body {
   color: var(--foreground);
-  background: var(--background);
-  font-family: var(--font-primary);
+  background-color: var(--background);
+  font-family: 'Bebas Neue', sans-serif;
 }
 
-/* Utility Classes */
+/* Accent color styles */
+a, h1, h2, h3, h4, h5, h6, button {
+  color: var(--foreground);
+}
+
+a:hover, button:hover {
+  color: var(--accent);
+}
+
+.bg-alt {
+  background-color: var(--alt-background);
+  color: var(--alt-color);
+}
+
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .text-accent {
+    color: var(--accent);
   }
   .bg-accent {
     background-color: var(--accent);

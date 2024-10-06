@@ -1,110 +1,94 @@
 "use client"
-import { useSession, signIn, signOut } from "next-auth/react"
+
 import Image from "next/image"
+import { signIn } from "next-auth/react"
 import {
     EnvelopeIcon,
     ShieldCheckIcon,
     UserCircleIcon,
 } from "@heroicons/react/24/solid"
-import React from "react"
 
 export default function Home() {
-    const { data: session } = useSession()
-
     return (
-        <div className="relative min-h-screen bg-black text-white">
-            {/* Background Shapes */}
-            <div className="fixed top-0 left-0 w-[225%] h-[225%] translate-x-[5%] -translate-y-[27%] transform rotate-180">
+        <div className="relative min-h-screen flex flex-col items-center justify-center bg-black text-white">
+            {/* Background Image */}
+            <div className="absolute inset-0 -z-10 overflow-hidden">
                 <Image
-                    className="object-contain opacity-30"
-                    src="/SHAPES_BLACK.png"
+                    src="/public/SHAPES_WHITE.png"
                     alt="Background Shapes"
                     fill
+                    className="object-cover opacity-30"
                 />
             </div>
 
-            {/* Main content with logo and text */}
-            <div className="relative grid grid-rows-[20px_1fr_20px] items-center justify-items-center p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-bebas-neue)] z-10">
-                <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-                    {/* Logo */}
-                    <Image
-                        src="/NGMA-AUTH-BLACK.png"
-                        alt="NextGen Management Agency logo"
-                        width={256}
-                        height={75}
-                        priority
-                    />
+            {/* Logo and Welcome Text */}
+            <div className="relative z-10 text-center">
+                <Image
+                    src="/public/NGMA-AUTH.png"
+                    alt="NextGen Management Agency"
+                    width={256}
+                    height={75}
+                    className="mb-8"
+                />
+                <h1 className="text-6xl font-bold text-accent">
+                    Welcome to NextGen Management Agency
+                </h1>
+                <p className="mt-4 text-xl text-alt">
+                    Manage talent and clients seamlessly with our all-in-one
+                    solution for agencies.
+                </p>
 
-                    {/* Main content */}
-                    <h1 className="text-4xl sm:text-5xl font-bold text-center sm:text-left">
-                        Welcome to NextGen Management Agency
-                    </h1>
-                    <p className="text-lg sm:text-xl text-center sm:text-left">
-                        Manage talent and clients seamlessly with our all-in-one
-                        solution for agencies.
-                    </p>
+                <ul className="list-decimal text-lg mt-8">
+                    <li className="mb-2">
+                        To get started, sign in to your account.
+                    </li>
+                    <li>
+                        Manage your talent, track projects, and deliver
+                        exceptional results.
+                    </li>
+                </ul>
 
-                    <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-bebas-neue)]">
-                        <li className="mb-2">
-                            {session ? (
-                                <>
-                                    Signed in as {session.user?.email}.{" "}
-                                    <button onClick={() => signOut()}>
-                                        Sign out
-                                    </button>
-                                </>
-                            ) : (
-                                <>
-                                    <button onClick={() => signIn("auth0")}>
-                                        To get started, sign in to your account.
-                                    </button>
-                                </>
-                            )}
-                        </li>
-                        <li>
-                            Manage your talent, track projects, and deliver
-                            exceptional results.
-                        </li>
-                    </ol>
-                </main>
-
-                {/* Footer Section */}
-                <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center absolute bottom-5 w-full">
+                {/* Call to Action Buttons */}
+                <div className="flex justify-center gap-4 mt-8">
                     <a
-                        className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-                        href="/contact"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        href="/register"
+                        className="bg-white text-black px-6 py-2 rounded-full shadow-lg hover:bg-gray-200 transition"
                     >
-                        <EnvelopeIcon className="w-5 h-5" aria-hidden="true" />
-                        Contact
+                        Join as a Talent or Client
                     </a>
-                    <a
-                        className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-                        href="/about"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    <button
+                        onClick={() => signIn("auth0")}
+                        className="bg-accent text-white px-6 py-2 rounded-full shadow-lg hover:bg-pink-600 transition"
                     >
-                        <UserCircleIcon
-                            className="w-5 h-5"
-                            aria-hidden="true"
-                        />
-                        About
-                    </a>
-                    <a
-                        className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-                        href="/privacy-policy"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <ShieldCheckIcon
-                            className="w-5 h-5"
-                            aria-hidden="true"
-                        />
-                        Privacy Policy
-                    </a>
-                </footer>
+                        Login
+                    </button>
+                </div>
             </div>
+
+            {/* Footer Section */}
+            <footer className="absolute bottom-5 flex justify-center gap-6 text-lg">
+                <a
+                    href="/contact"
+                    className="flex items-center gap-2 hover:underline"
+                >
+                    <EnvelopeIcon className="w-5 h-5" />
+                    Contact
+                </a>
+                <a
+                    href="/about"
+                    className="flex items-center gap-2 hover:underline"
+                >
+                    <UserCircleIcon className="w-5 h-5" />
+                    About
+                </a>
+                <a
+                    href="/privacy-policy"
+                    className="flex items-center gap-2 hover:underline"
+                >
+                    <ShieldCheckIcon className="w-5 h-5" />
+                    Privacy Policy
+                </a>
+            </footer>
         </div>
     )
 }

@@ -1,9 +1,17 @@
+import type { Metadata } from "next"
+import { Bebas_Neue } from "next/font/google"
 import "./globals.css"
-import SessionWrapper from "./SessionWrapper" // Client component
 
-export const metadata = {
+const bebasNeue = Bebas_Neue({
+    weight: "400",
+    subsets: ["latin"],
+    variable: "--font-bebas",
+})
+
+export const metadata: Metadata = {
     title: "NextGen Management Agency",
-    description: "Manage talent seamlessly with NextGen Management Agency.",
+    description:
+        "Manage talent and clients seamlessly with NextGen Management Agency.",
 }
 
 export default function RootLayout({
@@ -13,9 +21,8 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body>
-                <SessionWrapper>{children}</SessionWrapper>{" "}
-                {/* Wrap in SessionProvider */}
+            <body className={`${bebasNeue.variable} bg-black antialiased`}>
+                {children}
             </body>
         </html>
     )
