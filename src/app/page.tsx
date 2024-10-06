@@ -10,9 +10,9 @@ import {
 
 export default function Home() {
     return (
-        <div className="absolute min-h-screen bg-[#0a0a0a] text-white font-[Bebas_Neue]">
+        <div className="fixed min-h-screen bg-[#0a0a0a] text-white font-[Bebas_Neue]">
             {/* Background Shapes moved slightly to the right */}
-            <div className="absolute top-0 left-10 w-[225%] h-[225%] translate-x-[8%] -translate-y-[29%] transform rotate-180 z-0">
+            <div className="top-0 left-10 w-[225%] h-[225%] translate-x-[8%] -translate-y-[29%] transform rotate-180 z-0">
                 <Image
                     className="object-contain opacity-30"
                     src="/SHAPES_BLACK.png"
@@ -22,7 +22,7 @@ export default function Home() {
             </div>
 
             {/* Main content with logo and text */}
-            <div className="absolute grid grid-rows-[20px_1fr_20px] items-center justify-items-center  sm:p-20">
+            <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center  sm:p-20">
                 <main className="flex flex-col  row-start-2 items-center sm:items-start">
                     {/* Logo scaled up by 175% */}
                     <div className="ml-[115px] mb-[145px] scale-[2.25] z-10">
