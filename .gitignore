@@ -38,5 +38,3 @@ coverage/
 # Ignore Tailwind CSS build artifacts
 *.css.map
 
-# Ignore postcss config output
-postcss.config.mjs
