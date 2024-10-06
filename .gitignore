@@ -26,6 +26,7 @@ yarn-error.log*
 .DS_Store
 
 # Package lock files
+package-lock.json
 yarn.lock
 
 # Ignore Next.js cache and build artifacts
@@ -37,3 +38,5 @@ coverage/
 # Ignore Tailwind CSS build artifacts
 *.css.map
 
+# Ignore postcss config output
+postcss.config.mjs
