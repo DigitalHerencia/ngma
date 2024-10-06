@@ -2,26 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom Variables */
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --accent: #00ffff;
+  --alt-background: #0a0a0a;
+  --alt-foreground: #ededed;
+  --font-primary: 'Bebas Neue', sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: var(--alt-background);
+    --foreground: var(--alt-foreground);
   }
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-primary);
 }
 
+/* Utility Classes */
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  .bg-accent {
+    background-color: var(--accent);
   }
 }
