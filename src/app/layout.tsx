@@ -1,16 +1,7 @@
-"use client"
-import type { Metadata } from "next"
-import localFont from "next/font/local"
 import "./globals.css"
-import { SessionProvider } from "next-auth/react"
+import SessionWrapper from "./SessionWrapper" // Client component
 
-const bebasNeue = localFont({
-    src: "./fonts/BebasNeue/BebasNeue-Regular.woff",
-    variable: "--font-bebas-neue",
-    weight: "400",
-})
-
-export const metadata: Metadata = {
+export const metadata = {
     title: "NextGen Management Agency",
     description: "Manage talent seamlessly with NextGen Management Agency.",
 }
@@ -22,8 +13,9 @@ export default function RootLayout({
 }) {
     return (
         <html lang="en">
-            <body className={`${bebasNeue.variable} antialiased`}>
-                <SessionProvider>{children}</SessionProvider>
+            <body>
+                <SessionWrapper>{children}</SessionWrapper>{" "}
+                {/* Wrap in SessionProvider */}
             </body>
         </html>
     )
