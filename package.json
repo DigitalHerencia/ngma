@@ -20,6 +20,8 @@
     "react-dom": "^18"
   },
   "devDependencies": {
+    "@swc/core": "^1.7.26",
+    "@swc/helpers": "^0.5.13",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
