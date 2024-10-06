@@ -10,7 +10,7 @@ import {
 
 export default function Home() {
     return (
-        <div className="relative min-h-screen bg-[#0a0a0a] text-white font-[Bebas_Neue]">
+        <div className="absolute min-h-screen bg-[#0a0a0a] text-white font-[Bebas_Neue]">
             {/* Background Shapes moved slightly to the right */}
             <div className="fixed top-0 left-10 w-[225%] h-[225%] translate-x-[8%] -translate-y-[29%] transform rotate-180 z-0">
                 <Image
@@ -22,7 +22,7 @@ export default function Home() {
             </div>
 
             {/* Main content with logo and text */}
-            <div className="relativegrid grid-rows-[20px_1fr_20px] items-center justify-items-center  sm:p-20">
+            <div className="absolute grid grid-rows-[20px_1fr_20px] items-center justify-items-center  sm:p-20">
                 <main className="flex flex-col  row-start-2 items-center sm:items-start">
                     {/* Logo scaled up by 175% */}
                     <div className="ml-[115px] mb-[145px] scale-[2.25] z-10">
