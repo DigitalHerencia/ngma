@@ -1,6 +1,7 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
-import "./globals.css";
+"use client"
+import type { Metadata } from "next"
+import localFont from "next/font/local"
+import "./globals.css"
 import { SessionProvider } from "next-auth/react"
 
 const bebasNeue = localFont({
@@ -14,7 +15,11 @@ export const metadata: Metadata = {
     description: "Manage talent seamlessly with NextGen Management Agency.",
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+    children,
+}: {
+    children: React.ReactNode
+}) {
     return (
         <html lang="en">
             <body className={`${bebasNeue.variable} antialiased`}>
