@@ -4,37 +4,43 @@
 
 /* Define custom colors and styles */
 :root {
-  --background: #0a0a0a; /* Main background color */
-  --foreground: #00ffff; /* Heading and button color */
-  --accent: #ff00ff;     /* Accent color */
-  --alt-background: #ffffff; /* Alternative background color */
-  --alt-color: #0a0a0a;      /* Alternative text color */
+  --background: #0a0a0a;        /* Main background color */
+  --foreground: #48b5ff;        /* Heading, button, hover color */
+  --accent: #9668f8;            /* Accent color */
+  --alt-background: #ffffff;    /* Alternative background color */
+  --alt-color: #0a0a0a;         /* Alternative text color */
+  --icon-color: #ffffff;        /* Default icon and footer text color */
 }
 
 /* Dark mode alternative */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #00ffff;
-    --accent: #ff00ff;
+    --foreground: #48b5ff;
+    --accent: #9668f8;
     --alt-background: #ffffff;
     --alt-color: #0a0a0a;
+    --icon-color: #ffffff; /* Ensures icon and text are white in dark mode */
   }
 }
 
 body {
-  color: var(--foreground);
+  color: var(--alt-background); /* Main text color should be white */
   background-color: var(--background);
   font-family: 'Bebas Neue', sans-serif;
 }
 
-/* Accent color styles */
-a, h1, h2, h3, h4, h5, h6, button {
-  color: var(--foreground);
+/* Heading, button, and link colors */
+h1, h2, h3, h4, h5, h6, button, a {
+  color: var(--icon-color); /* Text and icons are white by default */
 }
 
-a:hover, button:hover {
-  color: var(--accent);
+button:hover, a:hover {
+  color: var(--foreground); /* Changes to #48b5ff on hover */
+}
+
+.footer-link:hover, .footer-icon:hover {
+  color: var(--foreground); /* Ensures footer text and icons turn blue on hover */
 }
 
 .bg-alt {
@@ -42,6 +48,7 @@ a:hover, button:hover {
   color: var(--alt-color);
 }
 
+/* Additional utility classes for specific accents */
 @layer utilities {
   .text-accent {
     color: var(--accent);

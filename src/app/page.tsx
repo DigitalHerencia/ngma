@@ -1,3 +1,5 @@
+"use client"
+
 import { signIn } from "next-auth/react"
 import Image from "next/image"
 import {
@@ -8,59 +10,65 @@ import {
 
 export default function Home() {
     return (
-        <div className="relative min-h-screen bg-[#0a0a0a] text-white">
-            {/* Background Shapes */}
-            <div className="fixed top-0 left-0 w-[225%] h-[225%] translate-x-[5%] -translate-y-[27%] transform rotate-180">
+        <div className="relative min-h-screen bg-[#0a0a0a] text-white font-[Bebas_Neue]">
+            {/* Background Shapes moved slightly to the right */}
+            <div className="fixed top-0 left-10 w-[225%] h-[225%] translate-x-[8%] -translate-y-[29%] transform rotate-180 z-0">
                 <Image
                     className="object-contain opacity-30"
-                    src="/images/SHAPES_BLACK.png"
+                    src="/SHAPES_BLACK.png"
                     alt="Background Shapes"
                     fill
                 />
             </div>
 
             {/* Main content with logo and text */}
-            <div className="relative grid grid-rows-[20px_1fr_20px] items-center justify-items-center p-8 pb-20 gap-16 sm:p-20 font-[BebasNeue] z-10">
-                <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-                    {/* Logo */}
-                    <Image
-                        src="/images/NGMA-AUTH-BLACK.png"
-                        alt="NextGen Management Agency logo"
-                        width={256}
-                        height={75}
-                        priority
-                    />
+            <div className="relative grid grid-rows-[20px_1fr_20px] items-center justify-items-center  sm:p-20">
+                <main className="flex flex-col  row-start-2 items-center sm:items-start">
+                    {/* Logo scaled up by 175% */}
+                    <div className="ml-[115px] mb-[145px] scale-[2.25] z-10">
+                        <Image
+                            src="/NGMA-AUTH-BLACK.png"
+                            alt="NextGen Management Agency logo"
+                            width={240}
+                            height={112}
+                            priority
+                        />
+                    </div>
 
                     {/* Main content */}
-                    <h1 className="text-4xl sm:text-5xl font-bold text-center sm:text-left text-[#00ffff]">
-                        Welcome to NextGen Management Agency
-                    </h1>
-                    <p className="text-lg sm:text-xl text-center sm:text-left text-[#ffffff]">
-                        Manage talent and clients seamlessly with our all-in-one
-                        solution for agencies.
-                    </p>
+                    <div className="mt-4">
+                        <h1 className="text-7xl sm:text-7xl font-bold text-white text-center sm:text-left pr-80 z-20">
+                            Welcome to NextGen Management Agency
+                        </h1>
+                        <p className="text-3xl sm:text-3xl text-center sm:text-left">
+                            Experience seamless talent and client management
+                            with a platform built <br /> to streamline
+                            operations, enhance performance, and drive results.
+                        </p>
 
-                    <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[BebasNeue] text-[#ffffff]">
-                        <li className="mb-2">
-                            To get started, sign in to your account.
-                        </li>
-                        <li>
-                            Manage your talent, track projects, and deliver
-                            exceptional results.
-                        </li>
-                    </ol>
+                        <ol className="list-inside pt-2 pb-4 list-decimal text-lg text-center sm:text-left">
+                            <li>
+                                Get started today by creating an account or
+                                logging in.
+                            </li>
+                            <li>
+                                Track engagement, schedule projects, and
+                                maximize growth with our cutting-edge tools.
+                            </li>
+                        </ol>
+                    </div>
 
                     {/* Call to Action Buttons */}
-                    <div className="flex gap-4 items-center flex-col sm:flex-row">
+                    <div className="flex gap-4 items-center flex-col sm:flex-row pb-60">
                         <a
-                            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-[#ff00ff] text-[#ffffff] gap-2 hover:bg-[#383838] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
+                            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-white text-black gap-2 hover:bg-[#48b5ff] hover:text-white text-xl h-14 px-6"
                             href="/register"
                         >
-                            Join as a Talent or Client
+                            Create an account
                         </a>
 
                         <button
-                            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-[#00ffff] hover:bg-[#00cccc] text-black text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
+                            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-white text-black hover:bg-[#48b5ff] hover:text-white text-xl h-14 px-6 sm:min-w-52"
                             onClick={() => signIn("auth0")}
                         >
                             Login
@@ -68,37 +76,40 @@ export default function Home() {
                     </div>
                 </main>
 
-                {/* Footer Section */}
-                <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center absolute bottom-5 w-full text-[#00ffff]">
+                {/* Footer Section: Icons and Text scaled by 175% */}
+                <footer className="footer flex gap-8 flex-wrap items-center justify-center absolute bottom-4 w-full pb-16">
                     <a
-                        className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+                        className="footer-link flex items-center gap-1 transition-colors text-xl hover:text-[#48b5ff]"
                         href="/contact"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <EnvelopeIcon className="w-5 h-5" aria-hidden="true" />
+                        <EnvelopeIcon
+                            className="footer-icon w-7 h-7" /* Original size scaled by 1.75 */
+                            aria-hidden="true"
+                        />
                         Contact
                     </a>
                     <a
-                        className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+                        className="footer-link flex items-center gap-1 transition-colors text-xl hover:text-[#48b5ff]"
                         href="/about"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
                         <UserCircleIcon
-                            className="w-5 h-5"
+                            className="footer-icon w-7 h-7" /* Scaled by 1.75 */
                             aria-hidden="true"
                         />
                         About
                     </a>
                     <a
-                        className="flex items-center gap-2 hover:underline hover:underline-offset-4"
+                        className="footer-link flex items-center gap-1 transition-colors text-xl hover:text-[#48b5ff]"
                         href="/privacy-policy"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
                         <ShieldCheckIcon
-                            className="w-5 h-5"
+                            className="footer-icon w-7 h-7" /* Scaled by 1.75 */
                             aria-hidden="true"
                         />
                         Privacy Policy
