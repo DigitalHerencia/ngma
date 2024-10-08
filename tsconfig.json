@@ -19,7 +19,7 @@
         "paths": {
             "@/*": ["./src/*"]
         },
-        "types": ["node"], // Remove "next-auth" from here
+        "types": ["node"],
         "strict": false,
         "plugins": [
             {
