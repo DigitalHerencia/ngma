@@ -10,6 +10,7 @@
   --alt-background: #ffffff;    /* Alternative background color */
   --alt-color: #0a0a0a;         /* Alternative text color */
   --icon-color: #ffffff;        /* Default icon and footer text color */
+  --body-text-color: #f0f0f0;   /* Ensuring better readability */
 }
 
 /* Dark mode alternative */
@@ -20,27 +21,27 @@
     --accent: #9668f8;
     --alt-background: #ffffff;
     --alt-color: #0a0a0a;
-    --icon-color: #ffffff; /* Ensures icon and text are white in dark mode */
+    --icon-color: #ffffff;
   }
 }
 
 body {
-  color: var(--alt-background); /* Main text color should be white */
+  color: var(--body-text-color); /* Updated to ensure readability */
   background-color: var(--background);
   font-family: 'Bebas Neue', sans-serif;
 }
 
 /* Heading, button, and link colors */
 h1, h2, h3, h4, h5, h6, button, a {
-  color: var(--icon-color); /* Text and icons are white by default */
+  color: var(--icon-color);
 }
 
 button:hover, a:hover {
-  color: var(--foreground); /* Changes to #48b5ff on hover */
+  color: var(--foreground); /* Changes to blue on hover */
 }
 
 .footer-link:hover, .footer-icon:hover {
-  color: var(--foreground); /* Ensures footer text and icons turn blue on hover */
+  color: var(--foreground); /* Ensures footer icons turn blue on hover */
 }
 
 .bg-alt {

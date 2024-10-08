@@ -10,112 +10,84 @@ import {
 
 export default function Home() {
     return (
-        <div className="absolute min-h-screen bg-[#0a0a0a] text-white font-[Bebas_Neue]">
-            {/* Background Shapes moved slightly to the right */}
-            <div className="fixed top-0 left-10 w-[225%] h-[225%] translate-x-[8%] -translate-y-[29%] transform rotate-180 z-0">
+        <div className="relative min-h-screen bg-[#0a0a0a] text-white font-sans">
+            {/* Background Shapes */}
+            <div className="absolute top-0 left-0 w-full h-full opacity-10 z-0">
                 <Image
-                    className="object-contain opacity-30"
                     src="/SHAPES_BLACK.png"
                     alt="Background Shapes"
                     fill
+                    className="object-cover"
                 />
             </div>
 
-            {/* Main content with logo and text */}
-            <div className="absolute grid grid-rows-[20px_1fr_20px] items-center justify-items-center  sm:p-20">
-                <main className="flex flex-col  row-start-2 items-center sm:items-start">
-                    {/* Logo scaled up by 175% */}
-                    <div className="ml-[115px] mb-[145px] scale-[2.25] z-10">
-                        <Image
-                            src="/NGMA-AUTH-BLACK.png"
-                            alt="NextGen Management Agency logo"
-                            width={240}
-                            height={112}
-                            priority
-                        />
-                    </div>
+            {/* Main Content */}
+            <div className="relative z-10 flex flex-col items-center justify-center min-h-screen">
+                {/* Logo */}
+                <div className="mb-8">
+                    <Image
+                        src="/NGMA-AUTH-BLACK.png"
+                        alt="NextGen Management Agency Logo"
+                        width={350}
+                        height={150}
+                        priority
+                    />
+                </div>
 
-                    {/* Main content */}
-                    <div className="mt-4">
-                        <h1 className="text-7xl sm:text-7xl font-bold text-white text-center sm:text-left pr-80 z-20">
-                            Welcome to NextGen Management Agency
-                        </h1>
-                        <p className="text-3xl sm:text-3xl text-center sm:text-left">
-                            Experience seamless talent and client management
-                            with a platform built <br /> to streamline
-                            operations, enhance performance, and drive results.
-                        </p>
+                {/* Headline */}
+                <h1 className="text-6xl font-bold mb-6 text-center leading-tight">
+                    Elevate Your Career with <br /> NextGen Management Agency
+                </h1>
 
-                        <ol className="list-inside pt-2 pb-4 list-decimal text-lg text-center sm:text-left">
-                            <li>
-                                Get started today by creating an account or
-                                logging in.
-                            </li>
-                            <li>
-                                Track engagement, schedule projects, and
-                                maximize growth with our cutting-edge tools.
-                            </li>
-                        </ol>
-                    </div>
+                {/* Subtext */}
+                <p className="text-lg text-center max-w-2xl mb-8 text-gray-300">
+                    Join a platform designed to streamline talent management,
+                    boost growth, and deliver outstanding results. Discover how
+                    we can help you grow your audience and maximize your
+                    potential.
+                </p>
 
-                    {/* Call to Action Buttons */}
-                    <div className="flex gap-4 items-center flex-col sm:flex-row pb-60">
-                        <a
-                            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-white text-black gap-2 hover:bg-[#48b5ff] hover:text-white text-xl h-14 px-6"
-                            href="/register"
-                        >
-                            Create an account
-                        </a>
-
-                        <button
-                            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-white text-black hover:bg-[#48b5ff] hover:text-white text-xl h-14 px-6 sm:min-w-52"
-                            onClick={() => signIn("auth0")}
-                        >
-                            Login
-                        </button>
-                    </div>
-                </main>
-
-                {/* Footer Section: Icons and Text scaled by 175% */}
-                <footer className="footer flex gap-8 flex-wrap items-center justify-center absolute bottom-4 w-full pb-16">
+                {/* Call to Action Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4">
                     <a
-                        className="footer-link flex items-center gap-1 transition-colors text-xl hover:text-[#48b5ff]"
-                        href="/contact"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        href="/register"
+                        className="bg-gradient-to-r from-purple-500 via-blue-500 to-indigo-600 text-white py-3 px-8 rounded-full text-lg hover:from-indigo-500 hover:to-purple-600 transition-colors"
                     >
-                        <EnvelopeIcon
-                            className="footer-icon w-7 h-7" /* Original size scaled by 1.75 */
-                            aria-hidden="true"
-                        />
-                        Contact
+                        Create an Account
                     </a>
-                    <a
-                        className="footer-link flex items-center gap-1 transition-colors text-xl hover:text-[#48b5ff]"
-                        href="/about"
-                        target="_blank"
-                        rel="noopener noreferrer"
+                    <button
+                        onClick={() => signIn("auth0")}
+                        className="bg-white text-black py-3 px-8 rounded-full text-lg hover:bg-gray-300 transition-colors"
                     >
-                        <UserCircleIcon
-                            className="footer-icon w-7 h-7" /* Scaled by 1.75 */
-                            aria-hidden="true"
-                        />
-                        About
-                    </a>
-                    <a
-                        className="footer-link flex items-center gap-1 transition-colors text-xl hover:text-[#48b5ff]"
-                        href="/privacy-policy"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <ShieldCheckIcon
-                            className="footer-icon w-7 h-7" /* Scaled by 1.75 */
-                            aria-hidden="true"
-                        />
-                        Privacy Policy
-                    </a>
-                </footer>
+                        Login
+                    </button>
+                </div>
             </div>
+
+            {/* Footer */}
+            <footer className="absolute bottom-0 w-full flex justify-center gap-8 pb-8 text-lg">
+                <a
+                    className="footer-link flex items-center gap-1 transition-colors hover:text-[#48b5ff]"
+                    href="/contact"
+                >
+                    <EnvelopeIcon className="footer-icon w-7 h-7" />
+                    Contact
+                </a>
+                <a
+                    className="footer-link flex items-center gap-1 transition-colors hover:text-[#48b5ff]"
+                    href="/about"
+                >
+                    <UserCircleIcon className="footer-icon w-7 h-7" />
+                    About
+                </a>
+                <a
+                    className="footer-link flex items-center gap-1 transition-colors hover:text-[#48b5ff]"
+                    href="/privacy-policy"
+                >
+                    <ShieldCheckIcon className="footer-icon w-7 h-7" />
+                    Privacy Policy
+                </a>
+            </footer>
         </div>
     )
 }

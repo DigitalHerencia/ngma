@@ -1,40 +1,31 @@
 {
   "compilerOptions": {
-    "target": "esnext",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "strictNullChecks": true,
-    "forceConsistentCasingInFileNames": true,
-    "paths": {
-      "@/*": [
-        "./src/*"
+      "target": "esnext",
+      "lib": ["dom", "dom.iterable", "esnext"],
+      "allowJs": true,
+      "skipLibCheck": true,
+      "noEmit": true,
+      "esModuleInterop": true,
+      "module": "esnext",
+      "moduleResolution": "node",
+      "resolveJsonModule": true,
+      "isolatedModules": true,
+      "jsx": "preserve",
+      "incremental": true,
+      "noUnusedLocals": true,
+      "noUnusedParameters": true,
+      "strictNullChecks": true,
+      "forceConsistentCasingInFileNames": true,
+      "paths": {
+          "@/*": ["./src/*"]
+      },
+      "types": ["node"],
+      "strict": true, // Enabled strict mode for better type checking
+      "plugins": [
+          {
+              "name": "next"
+          }
       ]
-    },
-    "types": [
-      "node"
-    ] // Remove "next-auth" from here
-    ,
-    "strict": false,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
   },
   "include": [
     "next-env.d.ts",
