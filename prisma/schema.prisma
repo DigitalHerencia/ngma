@@ -21,3 +21,4 @@ model Talent {
   createdAt DateTime @default(now())
 }
 
+

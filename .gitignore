@@ -40,3 +40,4 @@ coverage/
 
 # Ignore postcss config output
 postcss.config.mjs
+node_modules\n.env\n.next
