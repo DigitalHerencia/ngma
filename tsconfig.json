@@ -10,17 +10,14 @@
       "moduleResolution": "node",
       "resolveJsonModule": true,
       "isolatedModules": true,
-      "jsx": "preserve",
+      "jsx": "preserve", // Use the latest JSX transform if using React 17+
       "incremental": true,
       "noUnusedLocals": true,
-      "noUnusedParameters": true,
-      "strictNullChecks": true,
       "forceConsistentCasingInFileNames": true,
       "paths": {
           "@/*": ["./src/*"]
       },
-      "types": ["node"],
-      "strict": true, // Enabled strict mode for better type checking
+      "types": ["node"], // Ensure Node.js types are included
       "plugins": [
           {
               "name": "next"

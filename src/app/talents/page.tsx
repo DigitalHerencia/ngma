@@ -1,34 +1,34 @@
-"use client"
-import { useState } from "react"
+interface TalentFormProps {
+    name: string
+    socialMedia: string
+}
 
-export default function TalentForm() {
-    const [name, setName] = useState("")
-    const [socialMedia, setSocialMedia] = useState("")
+export default function TalentForm({ name, socialMedia }: TalentFormProps) {
+    const [talentName] = useState(name)
+    const [talentSocialMedia] = useState(socialMedia)
 
-    async function handleSubmit(e: { preventDefault: () => void }) {
-        e.preventDefault()
+    const handleSubmit = async () => {
+        event.preventDefault()
         await fetch("/api/talent", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ name, socialMedia }),
+            body: JSON.stringify({ talentName, talentSocialMedia }),
         })
     }
-
-    return (
+    ;<>
+        return (
         <form onSubmit={handleSubmit}>
-            <input
-                type="text"
-                placeholder="Name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-            />
+            <input type="text" placeholder="Name" value={talentName} />
             <input
                 type="text"
                 placeholder="Social Media"
-                value={socialMedia}
-                onChange={(e) => setSocialMedia(e.target.value)}
+                value={talentSocialMedia}
             />
             <button type="submit">Create Talent</button>
         </form>
-    )
+        ) &rbrace;
+    </>
+    function useState(name: string): [any, any] {
+        throw new Error("Function not implemented.")
+    }
 }
