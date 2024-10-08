@@ -12,7 +12,6 @@
       "isolatedModules": true,
       "jsx": "preserve", // Use the latest JSX transform if using React 17+
       "incremental": true,
-      "noUnusedLocals": true,
       "forceConsistentCasingInFileNames": true,
       "paths": {
           "@/*": ["./src/*"]
