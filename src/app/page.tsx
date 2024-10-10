@@ -7,42 +7,55 @@ import {
     ShieldCheckIcon,
     UserCircleIcon,
 } from "@heroicons/react/24/solid"
+import { useEffect } from "react"
+import styles from "./page.module.css" // For glitch effect
 
 export default function Home() {
+    useEffect(() => {
+        // Animate background shapes on load
+        const shapes = document.getElementById("background-shapes")
+        shapes?.classList.add("animate-background-enter")
+    }, [])
+
     return (
-        <div className="relative min-h-screen bg-[#0a0a0a] text-white font-sans">
+        <div className="relative min-h-screen bg-[#0a0a0a] text-white font-sans overflow-hidden">
             {/* Background Shapes */}
-            <div className="absolute top-0 left-0 w-full h-full opacity-30 z-10 transform scale-[1.5] -translate-x-[-75vw] -scale-x-[1.5]">
+            <div
+                id="background-shapes"
+                className="absolute right-0 top-0 w-[70vw] h-full opacity-70 z-10 animate-slideLimited"
+            >
                 <Image
-                    src="/SHAPES_BLACK.png"
-                    alt="Background Shapes"
+                    src="/SHAPES_BLACK.png" // Replace with your background shape path
+                    alt="Background Shape"
                     fill
-                    className="object-cover"
+                    className="object-contain"
                 />
             </div>
 
             {/* Main Content */}
-            <div className="relative z-0 flex flex-col items-start justify-center min-h-screen px-8 md:px-24 -translate-y-[5vw]">
-                {/* Logo - doubled size */}
-                <div className="mb-6">
-                    {" "}
-                    {/* Reduced the bottom margin to raise the logo */}
+            <div className="relative z-20 flex flex-col items-start justify-center min-h-screen px-8 md:px-24 space-y-6">
+                {/* Logo with glitch effect */}
+                <div
+                    className={`mb-6 ${styles.glitch}`}
+                    data-text="NextGen Management Agency"
+                >
                     <Image
-                        src="/NGMA-AUTH-BLACK.png"
+                        src="/Main_Black.png" // Replace with your main logo path
                         alt="NextGen Management Agency Logo"
-                        width={700} // Increased size from 350 to 700 (100% larger)
-                        height={300} // Increased height to match scaling
+                        width={450}
+                        height={200}
                         priority
+                        className="drop-shadow-lg"
                     />
                 </div>
 
                 {/* Headline */}
-                <h1 className="text-2xl md:text-3xl font-bold mb-4 ml-10 text-left leading-tight">
+                <h1 className="text-4xl md:text-5xl font-bold mb-2 text-left leading-tight tracking-wide animate-fadeInUp">
                     Elevate Your Career with <br /> NextGen Management Agency
                 </h1>
 
                 {/* Subtext */}
-                <p className="text-lg text-left max-w-2xl mb-4 ml-10 text-gray-300">
+                <p className="text-lg text-left max-w-2xl mb-6 text-gray-300 animate-fadeInUp delay-200">
                     Join a platform designed to streamline talent management,
                     boost growth, and deliver outstanding results. Discover how
                     we can help you grow your audience and maximize your
@@ -50,19 +63,19 @@ export default function Home() {
                 </p>
 
                 {/* Call to Action Buttons */}
-                <div className="flex flex-col sm:flex-row gap-4 ml-10">
+                <div className="flex flex-col sm:flex-row gap-6 animate-fadeInUp delay-400">
                     <a
                         href="/register"
-                        className="bg-gradient-to-r from-purple-500 via-blue-500 to-indigo-600 text-white py-3 px-8 rounded-full text-lg 
-                                  transition-colors hover:text-[#48b5ff] hover:text-[#48b5ff]"
+                        className="bg-white text-black py-3 px-8 rounded-full text-lg transition-all duration-300 
+              hover:bg-gradient-to-r hover:from-purple-500 hover:via-blue-500 hover:to-indigo-600 
+              hover:text-white shadow-lg transform hover:scale-105"
                     >
                         Create an Account
                     </a>
                     <button
                         onClick={() => signIn("auth0")}
-                        className="bg-white text-black py-3 px-8 rounded-full text-lg transition-colors 
-                                   hover:bg-gradient-to-r hover:from-indigo-500 hover:via-purple-500 hover:to-indigo-600 
-                                   hover:text-[#48b5ff]" // Matching blue hover text color
+                        className="bg-gradient-to-r from-purple-500 via-blue-500 to-indigo-600 text-white py-3 px-8 rounded-full text-lg 
+              transition-all duration-300 hover:bg-white hover:text-black shadow-lg transform hover:scale-105"
                     >
                         Login
                     </button>
@@ -70,28 +83,26 @@ export default function Home() {
             </div>
 
             {/* Footer */}
-            <footer className="absolute bottom-0 w-full flex justify-center gap-8 pb-20 text-lg z-50">
-                {" "}
-                {/* Set z-index to 50 to bring it to the front */}
+            <footer className="absolute bottom-0 w-full flex justify-center gap-12 pb-12 text-lg z-50 animate-fadeInUp delay-600">
                 <a
-                    className="footer-link flex items-center gap-1 transition-colors hover:text-[#48b5ff]"
+                    className="footer-link flex items-center gap-2 transition-colors hover:bg-gradient-to-r hover:from-purple-500 hover:via-blue-500 hover:to-indigo-600 hover:text-white py-2 px-4 rounded-full"
                     href="/contact"
                 >
-                    <EnvelopeIcon className="footer-icon w-7 h-7" />
+                    <EnvelopeIcon className="w-7 h-7" />
                     Contact
                 </a>
                 <a
-                    className="footer-link flex items-center gap-1 transition-colors hover:text-[#48b5ff]"
+                    className="footer-link flex items-center gap-2 transition-colors hover:bg-gradient-to-r hover:from-purple-500 hover:via-blue-500 hover:to-indigo-600 hover:text-white py-2 px-4 rounded-full"
                     href="/about"
                 >
-                    <UserCircleIcon className="footer-icon w-7 h-7" />
+                    <UserCircleIcon className="w-7 h-7" />
                     About
                 </a>
                 <a
-                    className="footer-link flex items-center gap-1 transition-colors hover:text-[#48b5ff]"
+                    className="footer-link flex items-center gap-2 transition-colors hover:bg-gradient-to-r hover:from-purple-500 hover:via-blue-500 hover:to-indigo-600 hover:text-white py-2 px-4 rounded-full"
                     href="/privacy-policy"
                 >
-                    <ShieldCheckIcon className="footer-icon w-7 h-7" />
+                    <ShieldCheckIcon className="w-7 h-7" />
                     Privacy Policy
                 </a>
             </footer>
