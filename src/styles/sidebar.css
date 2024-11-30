@@ -1,0 +1,35 @@
+/* File: src/styles/sidebar.css */
+
+/* Define the CSS variables globally using the :root selector */
+:root {
+  --sidebar-width: 280px; /* Set the appropriate width for your sidebar */
+  --sidebar-width-icon: 50px; /* Set the appropriate icon width */
+}
+
+/* Example Sidebar Styles */
+
+.sidebar {
+  width: var(--sidebar-width);
+}
+
+.sidebar-icon {
+  width: var(--sidebar-width-icon);
+}
+
+/* Additional Styling */
+.sidebar {
+  background-color: #222; /* Example dark background color */
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  padding: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.sidebar-icon {
+  display: block;
+  margin: 10px 0;
+  font-size: 1.5rem;
+  color: #fff;
+}
